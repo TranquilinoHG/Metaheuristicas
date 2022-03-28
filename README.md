@@ -33,7 +33,10 @@ N = 9
 #### Vector de solución.
 **[1, 2, 2, 3, 3, 4, 3, 4, 2]**
 
-
+1. Amarrilo  
+2. Azul 
+3. Verde
+4. Rojo
 
 ### Matriz de costo ####
 
