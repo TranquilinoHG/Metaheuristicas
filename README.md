@@ -1,43 +1,41 @@
 # Graph-Coloring
-# Sequential-Ordering-Problem
+### Definicion del problema ###
 
+En la teoría de grafos, la coloración de grafos es un caso especial de etiquetado de grafos; es una asignación de etiquetas tradicionalmente llamadas "colores" a los elementos de un grafo sujeta a ciertas restricciones. En su forma más simple, es una forma de colorear los vértices de un grafo de manera que **no haya dos vértices adyacentes del mismo color**; esto se llama colorear vértices.
 
+### Aplicaciones ###
+1) Elaboración de un horario o tabla de tiempos: Supongamos que queremos hacer un calendario de exámenes para una universidad. Tenemos una lista de diferentes asignaturas y estudiantes matriculados en cada una de ellas. Muchas asignaturas tendrían alumnos comunes (de la misma hornada, algunos alumnos atrasados, etc). ¿Cómo podemos programar el examen para que no haya dos exámenes con un mismo alumno a la misma hora? ¿Cuántas franjas horarias mínimas se necesitan para programar todos los exámenes? Este problema se puede representar como un grafo en el que cada vértice es una asignatura y una arista entre dos vértices significa que hay un alumno común. Por tanto, se trata de un problema de coloreado de grafos en el que el número mínimo de franjas horarias es igual al número cromático del grafo.
 
-### 1.-Definicion del problema ###
+2) Asignación de frecuencias de radio móvil: Cuando se asignan frecuencias a las torres, las frecuencias asignadas a todas las torres en la misma ubicación deben ser diferentes. ¿Cómo se asignan las frecuencias con esta restricción? ¿Cuál es el número mínimo de frecuencias necesario? Este problema es también una instancia del problema de coloreado de grafos donde cada torre representa un vértice y una arista entre dos torres representa que están en el rango de la otra.
 
-El problema de ordenamiento secuencial consiste en encontrar un camino hamiltonanio de costo minimo, esto quiere decir que se debe encontrar el camino con los menores costos. El grafo con el que se debe representar debe ser un grafo dirigido con costos asociados a los ejes y relaciones de precedencia entre los nodos. Al hablar de relaciones de presedencia, nos referimos a una o mas reglas en el grafo que indican que nodos se deben visitar primero.Este problema puede verse como una variante del TSP, la diferencia principal recae en que el grafo debe ser asincrono debido a la presedencia. Pero tampoco podemos decir que se trata de un problema ATSP.
-De manera formal el problema se define de la siguiente forma;
+3) Sudoku: El sudoku es también una variación del problema de coloreado de grafos donde cada celda representa un vértice. Hay una arista entre dos vértices si están en la misma fila o en la misma columna o en el mismo bloque.
 
-Sea G=(V,E) un grafo dirigido completo, donde V= {0,1,2,3...} es el conjunto de nodos y E= {(i,j)| i,j E V,/=j}. Cada eje (i,j) E E tiene un costo asociado Cij >= 0. Ademas, se define el grafo de precedencias P = (V, R) con el mismo conjunto de nodos V .
+4) Asignación de registros: En la optimización del compilador, la asignación de registros es el proceso de asignar un gran número de variables del programa objetivo a un pequeño número de registros de la CPU. Este problema es también un problema de coloreado de grafos.
 
-Un camino que recorre todos los nodos sin repetirlos, comenzando en el 0 y terminando en n, y satisface todas las condiciones de precedencia es una solucion factible del SOP. El objetivo del SOP es encontrar una solucion factible de mınimo costo, donde el costo esta dado por la sumatoria de los costos de los ejes que componen el camino.
+5) Grafos bipartitos: Podemos comprobar si un gráfico es bipartito o no coloreando el gráfico con dos colores. Si un grafo dado es coloreable con dos colores, entonces es bipartito, de lo contrario no. Vea esto para más detalles.
 
+6) Colorear mapas: Mapas geográficos de países o estados en los que no se puede asignar el mismo color a dos ciudades adyacentes. Cuatro colores son suficientes para colorear cualquier mapa
 
-### 2.2 Aplicaciones ###
-Algunas aplicaciones de este problema cuando encontramos alguna situacion como mejoramientos en cadenas de produccion, planificacion y ruteo por ejemplo:
-
-**Planificacion de produccion:** Minimizar tiempo de ejecucion de varios trabajos, que deben ser proceso en cierto orden por una maquina.
-
-**Optimizacion:** En el uso de una grua portuaria eliminando cuellos de botella.
-
-**Problemas de transporte** por ejemplo minimizar la distancia recorrida por un helicoptero que debe transportar personal tecnico entre diferentes plataformas en una compañia petrolera.
-
-**Optimizaciones en fabricas** por ejemplo en manufactura del automotor, en el sistema de pintado de los autos, para minimizar costos de cambio de color de la pintura.
-
-### 2.3 Ejemplo ### 
-**GRAFO DE EJEMPLO**
+### Ejemplo ### 
+**Grafo de ejemplo**
 
 ![Grafo de ejemplo.](https://github.com/TranquilinoHG/Metaheuristicas/blob/main/grafoSinResolver.png)  
 
-**SOLUCION DE GRAFO DE EJEMPLO**
+Para este ejemplo tenemos que el numero de grafos es de 
+
+N = 9
+
+
+### Solucion del grafo de ejemplo.
 
 ![Solucion de Grafo de ejemplo.](https://github.com/TranquilinoHG/Metaheuristicas/blob/main/grafo.png)
 
-**Vector Solucion**
+#### Vector de solución.
+**[1, 2, 2, 3, 3, 4, 3, 4, 2]**
 
-[0, 2, 3, 4, 5, 6, 1, 7]
 
-**Matriz de costo**
+
+### Matriz de costo ####
 
 
 |  |S |H |P |C |I |L |G |A |M |
@@ -56,10 +54,8 @@ Algunas aplicaciones de este problema cuando encontramos alguna situacion como m
 
 
 
-## 3.- Modelo
+## Modelo
 ### Función objetivo
-La función objetivo para el problema de ordenamiento secuencial es la siguiente: **$\sum$ $C_{ij}$ + (n * penalización)**
 
-Donde la **penalización** será igual al costo mayor de toda la matriz de costos y **n** representa el número de reglas de precedencia que no se cumplen.
 
-El siguiente fragmento de código indica el proceso para calcular el valor de la función objetivo.
+
