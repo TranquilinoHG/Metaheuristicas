@@ -71,7 +71,25 @@ En este ejemplo el numero cromatico es
 
 
 ## Función de costo
+``` python
+def Costo(sol):
+  ncolores=len(Counter(sol))
+  return ncolores
+```
 
+## Funcion generar vecino
+``` python
+def Genera_Vecino(size,graph,color):
+  sol = [0 for i in range(size)]
+  ncolor=random.uniform(1, size+1)
+  for i in range(size):
+    r = int(random.uniform(1, ncolor))
+    sol[i] = r
+  #verfifica que la solucion sea valida  
+  if (isSafe(graph, sol,size))==-1:
+    sol=Genera_Vecino(size,graph,color)
+  return sol
+```
 ##  Instansias a ejecutar 
  1. 100
  2. 1000
