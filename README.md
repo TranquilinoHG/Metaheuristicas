@@ -94,7 +94,7 @@ def Genera_Vecino(size,graph,color):
 
  1. 10    con al menos tres vertices en promedio
  2. 50    con al menos tres vertices en promedio
- 3. 1000  con al menos tres vertices en promedio
+ 3. 500  con al menos tres vertices en promedio
 
 Los archivos se encuentran disponibles como 10grafos.csv...
 
