@@ -91,9 +91,25 @@ def Genera_Vecino(size,graph,color):
   return sol
 ```
 ##  Instansias a ejecutar 
- 1. 100
- 2. 1000
- 3. 1000000
+
+ 1. 10    con al menos tres vertices en promedio
+ 2. 50    con al menos tres vertices en promedio
+ 3. 1000  con al menos tres vertices en promedio
+
+Los archivos se encuentran disponibles como 10grafos.csv...
+
+A continuacion el codigo para leer el arhivo csv y guardarlo en una matriz.
+
+``` python
+import csv
+newMatrix = []
+with open('nombre.csv', 'r', newline='') as file:
+  myreader = csv.reader(file, delimiter=',')
+  for rows in myreader:
+   newMatrix.append(rows)
+newMatrix = np.array(newMatrix)
+
+```
 
 
 
